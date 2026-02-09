@@ -9,12 +9,11 @@
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="wrapper">
-      <span class="brand-rule" aria-hidden="true"></span>
-      <a href="../index.html" class="nav-logo">Mission Midnight</a>
-      <nav class="nav" aria-label="Main">
-        <ul class="nav-list">
+  <header class="site-head" role="banner">
+    <div class="wrap">
+      <a href="../index.html" class="logo">Mission Midnight</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
           <li><a href="../why-midnight.html">Why Midnight</a></li>
           <li><a href="index.html" aria-current="page">Experiments</a></li>
         </ul>
@@ -22,23 +21,27 @@
     </div>
   </header>
 
-  <main id="main" class="main" role="main">
-    <div class="wrapper">
-      <header class="page-header">
-        <h1 class="page-title">Experiments</h1>
-        <p class="page-lead">Lab work and exploratory projects. Restrained by design.</p>
-      </header>
-      <ul class="experiments-list" aria-label="Experiment index">
-        <!-- Empty state: no experiments yet -->
-      </ul>
-      <p class="experiments-empty">
+  <main id="main" class="main page lab" role="main">
+    <div class="wrap">
+      <hr class="horizon horizon--top" aria-hidden="true" />
+      <h1 class="title">Experiments</h1>
+      <p class="lead">Lab work and exploratory projects. Restrained by design.</p>
+      <div class="lab-grid" aria-hidden="true">
+        <div class="lab-cell"></div>
+        <div class="lab-cell"></div>
+        <div class="lab-cell"></div>
+      </div>
+      <p class="lab-empty">
         No experiments yet. This space is for future work.
       </p>
     </div>
   </main>
 
-  <footer class="site-footer wrapper" role="contentinfo">
-    <small>Quiet by design.</small>
+  <footer class="site-foot" role="contentinfo">
+    <div class="wrap">
+      <hr class="horizon" aria-hidden="true" />
+      <small>Quiet by design.</small>
+    </div>
   </footer>
 </body>
 </html>

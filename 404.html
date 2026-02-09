@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page not found — Mission Midnight</title>
+  <title>Not found — Mission Midnight</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="wrapper">
-      <span class="brand-rule" aria-hidden="true"></span>
-      <a href="index.html" class="nav-logo">Mission Midnight</a>
-      <nav class="nav" aria-label="Main">
-        <ul class="nav-list">
+  <header class="site-head" role="banner">
+    <div class="wrap">
+      <a href="index.html" class="logo">Mission Midnight</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
           <li><a href="why-midnight.html">Why Midnight</a></li>
           <li><a href="experiments/index.html">Experiments</a></li>
         </ul>
@@ -22,18 +21,19 @@
     </div>
   </header>
 
-  <main id="main" class="main error-page" role="main">
-    <div class="wrapper">
-      <p class="error-code" aria-hidden="true">404</p>
-      <h1 class="error-message">Page not found.</h1>
-      <p>
-        <a href="index.html" class="back-link">← Mission Midnight</a>
-      </p>
+  <main id="main" class="main err" role="main">
+    <div class="wrap">
+      <p class="code" aria-hidden="true">404</p>
+      <h1 class="msg">Page not found.</h1>
+      <p><a href="index.html" class="back">← Mission Midnight</a></p>
     </div>
   </main>
 
-  <footer class="site-footer wrapper" role="contentinfo">
-    <small>Quiet by design.</small>
+  <footer class="site-foot" role="contentinfo">
+    <div class="wrap">
+      <hr class="horizon" aria-hidden="true" />
+      <small>Quiet by design.</small>
+    </div>
   </footer>
 </body>
 </html>
