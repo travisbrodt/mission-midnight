@@ -1,0 +1,132 @@
+/* Mission Midnight — content MVP
+   Typography-first, B&W, system fonts. No dependencies. */
+
+:root {
+  --bg: #fff;
+  --text: #111;
+  --muted: #555;
+  --border: #ddd;
+  --space: 1.5rem;
+  --space-lg: 3rem;
+  --max-width: 42rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— Navigation ——— */
+.nav {
+  padding: var(--space-lg) var(--space) var(--space);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-logo:hover {
+  text-decoration: underline;
+}
+
+.nav-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* ——— Main content ——— */
+.page {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space);
+  width: 100%;
+}
+
+.hero-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space);
+}
+
+.hero-tagline {
+  font-size: 1.125rem;
+  color: var(--muted);
+  margin: 0 0 var(--space-lg);
+}
+
+.hero-body {
+  margin: 0 0 var(--space);
+  max-width: 36rem;
+}
+
+.hero-cta {
+  margin: var(--space-lg) 0 0;
+}
+
+.hero-cta a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.hero-cta a:hover {
+  text-decoration: underline;
+}
+
+/* ——— Why Midnight page ——— */
+.page-title {
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-lg);
+}
+
+.placeholder {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 var(--space);
+  max-width: 36rem;
+}
+
+/* ——— Footer ——— */
+.footer {
+  padding: var(--space) var(--space) var(--space-lg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
