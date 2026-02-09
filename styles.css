@@ -1,17 +1,46 @@
-/* Mission Midnight — content MVP
-   Typography-first, B&W, system fonts. No dependencies. */
+/* Mission Midnight — design system
+   Typography-first, grayscale only, system fonts. Static HTML + CSS. */
 
+/* ——— Design tokens (light) ——— */
 :root {
-  --bg: #fff;
-  --text: #111;
-  --muted: #555;
-  --border: #ddd;
+  --bg: #fafafa;
+  --fg: #0a0a0a;
+  --muted: #525252;
+  --border: #e5e5e5;
+  --maxw: 44rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
   --space: 1.5rem;
-  --space-lg: 3rem;
-  --max-width: 42rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --radius: 2px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --transition: 0.15s ease;
+  --font-heading: Georgia, "Times New Roman", Times, serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-* {
+/* ——— Dark mode ——— */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --fg: #fafafa;
+    --muted: #a3a3a3;
+    --border: #262626;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* ——— Reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition: 0s;
+  }
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,63 +50,134 @@ html {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--font-body);
   background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  color: var(--fg);
+  line-height: 1.65;
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* ——— Navigation ——— */
-.nav {
-  padding: var(--space-lg) var(--space) var(--space);
-  max-width: var(--max-width);
-  margin: 0 auto;
+/* ——— Focus (accessibility) ——— */
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline-offset: 4px;
+}
+
+/* ——— Brand mark: vertical rule accent (CSS only) ——— */
+.brand-rule {
+  width: 3px;
+  min-height: 2.5rem;
+  background: var(--border);
+  border-radius: var(--radius);
+}
+
+@media (prefers-color-scheme: dark) {
+  .brand-rule {
+    background: var(--muted);
+    opacity: 0.4;
+  }
+}
+
+/* ——— Skip link (a11y) ——— */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space);
+  padding: var(--space-sm) var(--space);
+  background: var(--fg);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 0.875rem;
+  z-index: 100;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space);
+}
+
+/* ——— Layout wrapper ——— */
+.wrapper {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space);
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--space);
+  padding-right: var(--space);
+}
+
+/* ——— Site header ——— */
+.site-header {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space);
   border-bottom: 1px solid var(--border);
 }
 
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
 .nav-logo {
+  font-family: var(--font-heading);
   font-weight: 600;
-  color: var(--text);
+  font-size: 1.0625rem;
+  letter-spacing: 0.03em;
+  color: var(--fg);
   text-decoration: none;
-  letter-spacing: 0.02em;
 }
 
 .nav-logo:hover {
   text-decoration: underline;
 }
 
-.nav-link {
-  color: var(--muted);
-  text-decoration: none;
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-link:hover {
-  color: var(--text);
-  text-decoration: underline;
+.nav-list a {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: var(--fg);
 }
 
 /* ——— Main content ——— */
-.page {
+.main {
   flex: 1;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--space-lg) var(--space);
-  width: 100%;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+/* ——— Homepage hero ——— */
+.hero {
+  max-width: 38rem;
 }
 
 .hero-title {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-family: var(--font-heading);
+  font-size: clamp(1.875rem, 5vw, 2.5rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1.2;
   margin: 0 0 var(--space);
 }
 
@@ -85,48 +185,135 @@ body {
   font-size: 1.125rem;
   color: var(--muted);
   margin: 0 0 var(--space-lg);
+  letter-spacing: 0.01em;
 }
 
 .hero-body {
+  font-size: 1rem;
   margin: 0 0 var(--space);
-  max-width: 36rem;
+}
+
+.hero-body + .hero-body {
+  margin-top: calc(-1 * var(--space-xs));
 }
 
 .hero-cta {
-  margin: var(--space-lg) 0 0;
+  margin-top: var(--space-xl);
+  padding-top: var(--space);
+  border-top: 1px solid var(--border);
 }
 
 .hero-cta a {
-  color: var(--text);
-  text-decoration: none;
   font-size: 0.9375rem;
+  color: var(--fg);
+  text-decoration: none;
+  transition: opacity var(--transition);
 }
 
 .hero-cta a:hover {
-  text-decoration: underline;
+  opacity: 0.75;
 }
 
-/* ——— Why Midnight page ——— */
+/* ——— Inner pages (Why Midnight, Experiments) ——— */
+.page-header {
+  margin-bottom: var(--space-lg);
+}
+
 .page-title {
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3.5vw, 1.875rem);
   font-weight: 600;
   letter-spacing: 0.02em;
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-sm);
+}
+
+.page-lead {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 38rem;
 }
 
 .placeholder {
   color: var(--muted);
   font-style: italic;
   margin: 0 0 var(--space);
-  max-width: 36rem;
+  max-width: 38rem;
 }
 
-/* ——— Footer ——— */
-.footer {
-  padding: var(--space) var(--space) var(--space-lg);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  width: 100%;
+/* ——— Experiments (lab stub) ——— */
+.experiments-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experiments-empty {
+  padding: var(--space-xl) 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-style: italic;
+  max-width: 28rem;
+}
+
+/* ——— 404 ——— */
+.error-page {
+  text-align: center;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.error-code {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  color: var(--muted);
+}
+
+.error-message {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0 0 var(--space-lg);
+}
+
+.error-page .back-link {
+  font-size: 0.9375rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.error-page .back-link:hover {
+  text-decoration: underline;
+}
+
+/* ——— Site footer ——— */
+.site-footer {
+  padding-top: var(--space);
+  padding-bottom: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer small {
   font-size: 0.8125rem;
   color: var(--muted);
+}
+
+/* ——— Responsive: tighter on small screens ——— */
+@media (max-width: 480px) {
+  :root {
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+  }
+
+  .site-header .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space);
+  }
+
+  .nav-list {
+    gap: var(--space);
+  }
 }

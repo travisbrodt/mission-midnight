@@ -7,27 +7,41 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="nav">
-    <a href="index.html" class="nav-logo">Mission Midnight</a>
-    <a href="why-midnight.html" class="nav-link">Why Midnight</a>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="wrapper">
+      <span class="brand-rule" aria-hidden="true"></span>
+      <a href="index.html" class="nav-logo">Mission Midnight</a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="why-midnight.html">Why Midnight</a></li>
+          <li><a href="experiments/index.html">Experiments</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main class="page">
-    <h1 class="hero-title">Mission Midnight</h1>
-    <p class="hero-tagline">Building with intention when there is no map.</p>
-    <p class="hero-body">
-      Mission Midnight is a personal studio for exploration, creation, and disciplined work — spanning technology, systems, ideas, and long-term thinking.
-    </p>
-    <p class="hero-body">
-      It exists to turn uncertainty into direction, and moments of clarity into things that last.
-    </p>
-    <p class="hero-cta">
-      <a href="why-midnight.html">→ Why Midnight</a>
-    </p>
+  <main id="main" class="main" role="main">
+    <div class="wrapper">
+      <article class="hero">
+        <h1 class="hero-title">Mission Midnight</h1>
+        <p class="hero-tagline">Building with intention when there is no map.</p>
+        <p class="hero-body">
+          Mission Midnight is a personal studio for exploration, creation, and disciplined work — spanning technology, systems, ideas, and long-term thinking.
+        </p>
+        <p class="hero-body">
+          It exists to turn uncertainty into direction, and moments of clarity into things that last.
+        </p>
+        <p class="hero-cta">
+          <a href="why-midnight.html">→ Why Midnight</a>
+        </p>
+      </article>
+    </div>
   </main>
 
-  <footer class="footer">
-    Quiet by design.
+  <footer class="site-footer wrapper" role="contentinfo">
+    <small>Quiet by design.</small>
   </footer>
 </body>
 </html>
